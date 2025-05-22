@@ -81,7 +81,7 @@ header nav {
 }
 
 #calendar {
-  max-width: 900px;
+  max-width: 100%;
   margin: 20px auto;
 }
 

@@ -61,7 +61,7 @@ def api_schedule():
     dt_s = datetime.strptime(f"{date} {start}", "%Y-%m-%d %H:%M")
     dt_e = datetime.strptime(f"{date} {end}",   "%Y-%m-%d %H:%M")
     if dt_s.weekday()>4 or dt_s.time()<time(9) or dt_e.time()>time(18):
-        return jsonify({'error':'Invalid time/day'}), 400
+        return jsonify({'error':'Оберіть правильну дату та час. Планування навчання дозволено з 9:00 до 18:00 тільки в робочі дні.'}), 400
 
     sched = load_schedule_df()
     day = sched[sched['Дата']==date]
@@ -69,10 +69,10 @@ def api_schedule():
         ex_s = datetime.strptime(r['Початок'], '%H:%M').time()
         ex_e = datetime.strptime(r['Завершення'], '%H:%M').time()
         if r['Приміщення']==room and not (dt_e.time()<=ex_s or dt_s.time()>=ex_e):
-            return jsonify({'error':'Room conflict'}), 400
+            return jsonify({'error':'У вказаний період обране приміщення вже заброноване.'}), 400
         for pid in ids:
             if pid in str(r['Учасники']).split(';'):
-                return jsonify({'error':f'Participant {pid} busy'}), 400
+                return jsonify({'error':f'Учасник {pid} вже приймає участь в навчанні в обраний період'}), 400
 
     part_df = load_participants_df()
     names = []
