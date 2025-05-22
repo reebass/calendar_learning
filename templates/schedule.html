@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Запланувати навчання</h2>
+  <form id="form-schedule">
+    <div class="form-group">
+      <label for="typeSelect">Назва навчання</label>
+      <select id="typeSelect" required><option value="">--</option></select>
+    </div>
+
+    <div class="form-group">
+      <label for="dateInput">Дата</label>
+      <input type="date" id="dateInput" required>
+    </div>
+
+    <div class="form-group">
+      <label for="startInput">Початок</label>
+      <input type="time" id="startInput" min="09:00" max="18:00" required>
+    </div>
+
+    <div class="form-group">
+      <label for="endInput">Завершення</label>
+      <input type="time" id="endInput" min="09:00" max="18:00" required>
+    </div>
+
+    <div class="form-group">
+      <label for="roomSelect">Приміщення</label>
+      <select id="roomSelect" required><option value="">--</option></select>
+    </div>
+
+    <div class="form-group">
+      <label for="trainerSelect">Тренер</label>
+      <select id="trainerSelect" required><option value="">--</option></select>
+    </div>
+
+    <div class="form-group">
+      <label for="idsInput">ID учасників (через ";")</label>
+      <input type="text" id="idsInput" placeholder="101;204;319">
+    </div>
+
+    <div class="form-group">
+      <label class="form-group-title" for="fileInput">Завантажити Excel з ID<span class="form-group-notific">(ID повинні знаходитись в колонці A на Лист1)</span></label>
+      <input type="file" id="fileInput" accept=".xlsx">
+    </div>
+    <div class="form-buttons">
+    <button type="submit">Запланувати</button>
+    <button type="button" id="clearForm">Очистити форму</button>
+  </div>
+    <div id="formError" class="error"></div>
+  </form>
+{% endblock %}

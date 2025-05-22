@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Календар навчань</title>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v=3">
+</head>
+<body>
+  <header>
+    <nav>
+      <button class="nav-button" onclick="location.href='/'">Запланувати</button>
+      <button class="nav-button" onclick="location.href='/calendar'">Календар</button>
+    </nav>
+    <img src="{{ url_for('static', filename='novus.png') }}" alt="logo">
+  </header>
+  <main>{% block content %}{% endblock %}</main>
+  <div id="overlay">
+    <div class="spinner"></div>
+  </div>
+  <!-- Модальне вікно для події -->
+
+  <div id="eventModal" class="modal">
+    <div class="modal-content">
+      <span id="modalClose" class="close">&times;</span>
+      <h3 id="modalTitle"></h3>
+      <p><strong>Початок:</strong> <span id="modalStart"></span></p>
+      <p><strong>Завершення:</strong> <span id="modalEnd"></span></p>
+      <p><strong>Місце проведення:</strong> <span id="modalRoom"></span></p>
+      <p><strong>Тренер:</strong> <span id="modalTrainer"></span></p>
+      <details><summary><strong>Учасники:</strong></summary>
+      <ul id="modalParticipants"></ul>
+    </details>
+    </div>
+  </div>
+
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.js'></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}?v=3"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 8px;
+  border-bottom: 1px solid #17bd30;
+  position: fixed;
+  height: 40px;
+  width: 100%;
+  z-index: 10;
+}
+
+img {
+  display: block;
+  margin: 0 20px 0 0;
+  padding: 0;
+  height: 50px;
+}
+
+main {
+  padding: 60px 20px 20px 20px;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+
+}
+
+.nav-button {
+    display: block;
+    margin: 0;
+    padding: 8px 15px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #17bd30;
+    background-color: #f3f3f3;
+    border: 1px solid #17bd30;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transition: all 300ms ease-in;
+}
+
+.nav-button:hover,
+.nav-button:focus {
+  color: #f3f3f3;
+  background-color: #17bd30;
+}
+
+
+
+
+.form-group {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.error {
+  color: red;
+  margin-top: 6px;
+}
+
+.form-group-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group-notific {
+  font-size: 12px;
+}
+
+#calendar {
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background: #fff;
+  width: 500px;
+  height: 300px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 16px;
+  position: relative;
+}
+
+.modal-content details {
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.close:hover {
+  color: #17bd30;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+#overlay .spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
